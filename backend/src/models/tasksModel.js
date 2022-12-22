@@ -5,6 +5,19 @@ const getAll =  async () => {
   return cadastro;
 };
 
+const createCad = async (cad)=> {
+  const {title} = cad;
+
+  const dateUTC = new Date(Date.now()).toUTCString();
+
+  const query = 'INSERT INTO cads(title, status, created_at) VALUES (?, ?, ?)';
+
+  const [createCad] = await connection.execute(query, [title, 'pendente',dateUTC]);
+
+  return createCad;
+};
+
 module.exports ={
-  getAll
+  getAll, 
+  createCad
 };
