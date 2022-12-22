@@ -14,7 +14,7 @@ const createCad = async (cad)=> {
 
   const [createCad] = await connection.execute(query, [title, 'pendente',dateUTC]);
 
-  return createCad;
+  return {insertId: createCad};
 };
 
 module.exports ={

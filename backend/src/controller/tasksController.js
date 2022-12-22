@@ -6,8 +6,8 @@ const getAll = async (req, res) => {
   return res.status(200).json(cadastro);
 };
 const createCad = async (req, res)=>{
-//   const createCad = await tasksModel.createTasks();
-  return req, res.status(200).json({message: 'okkk'});
+  const createCad = await tasksModel.createTasks(req.body);
+  return req, res.status(200).json(createCad);
 
 };
 module.exports = {
